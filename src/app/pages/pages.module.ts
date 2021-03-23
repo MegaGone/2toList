@@ -1,28 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ComponentsModule } from '../components/components.module';
 
 import { LoginComponent } from './login/login.component';
-import { SettingsComponent } from './settings/settings.component';
 import { FinishedComponent } from './finished/finished.component';
 import { PendingsComponent } from './pendings/pendings.component';
+import { ListComponent } from './list/list.component';
+
 
 
 
 @NgModule({
   declarations: [
     LoginComponent, 
-    SettingsComponent, 
     FinishedComponent, 
-    PendingsComponent
+    PendingsComponent, 
+    ListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsModule
   ],
   exports: [
     LoginComponent, 
-    SettingsComponent, 
     FinishedComponent, 
-    PendingsComponent
+    PendingsComponent,
+    ListComponent
   ]
 })
 export class PagesModule { }
