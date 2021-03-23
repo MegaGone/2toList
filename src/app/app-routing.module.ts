@@ -1,7 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { LoginComponent } from './pages/login/login.component';
+import { PendingsComponent } from './pages/pendings/pendings.component';
+import { FinishedComponent } from './pages/finished/finished.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+
+
+const routes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'pendings', component: PendingsComponent },
+  { path: 'finished', component: FinishedComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: '**', pathMatch: 'full', redirectTo: '' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
