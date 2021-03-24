@@ -22,7 +22,7 @@ import { AngularFireModule } from '@angular/fire';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule
   ],
-  providers: [AngularFireAuth],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

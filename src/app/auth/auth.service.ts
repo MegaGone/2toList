@@ -9,8 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  constructor(public afAuth: AngularFireAuth) {
+  public userData: Observable<firebase.User | null>
 
+  constructor(public afAuth: AngularFireAuth) {
+    this.userData = afAuth.authState
   }
 
   googleLogin() {
@@ -35,3 +37,4 @@ export class AuthService {
   }
 
 }
+
