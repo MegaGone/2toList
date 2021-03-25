@@ -6,12 +6,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
 import { ModalComponent } from './modal/modal.component';
+import { ClearAllComponent } from './clear-all/clear-all.component';
 
 @NgModule({
   declarations: [
     MenuComponent,
     HeaderComponent,
-    ModalComponent
+    ModalComponent,
+    ClearAllComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { ModalComponent } from './modal/modal.component';
   exports: [
     MenuComponent,
     HeaderComponent,
-    ModalComponent
+    ModalComponent,
+    ClearAllComponent
   ]
 })
 export class ComponentsModule { }
