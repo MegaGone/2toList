@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   public user: any;
 
-  constructor(private authSvc: AuthService) {
+  constructor(private authSvc: AuthService, private  router: Router) {
     this.authSvc.afAuth.authState.subscribe(user => {
 
       if(user) this.user = user
@@ -22,9 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut() {
-
+    this.router.navigate(['/'])
     this.authSvc.logOut();
-    console.log('out');
-
   }
 }

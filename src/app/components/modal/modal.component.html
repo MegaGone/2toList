@@ -1,6 +1,6 @@
 <!-- Modal Button -->
 <div class="form-row">
-    <button class="w-100 btn btn-lg btn-info m-1 p-1" (click)="open(content)">
+    <button class="w-100 btn btn-lg btn-info m-1 p-1" (click)="open(content); reset();">
         Create new list
         <i class="fal fa-plus-circle"></i>
     </button>
@@ -17,16 +17,21 @@
     </div>
 
     <div class="modal-body">
-        <form>
+        <form [formGroup]="forma">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="name list">
+                <input type="text" 
+                class="form-control" 
+                placeholder="Shopping List*" 
+                formControlName="title"
+                [ngClass]="{'is-invalid': titleInvalid}">
+                <small *ngIf="titleInvalid" class="text-danger">Must be at least 4 characters</small>
             </div>
         </form>
     </div>
 
     <div class="modal-footer">
         <div class="left-side">
-            <button type="button" class="btn btn-info btn-link" (click)="createList()">
+            <button type="button" class="btn btn-info btn-link" (click)="createList(); modal.close();">
                 Create
             </button>
         </div>
