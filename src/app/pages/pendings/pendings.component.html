@@ -9,7 +9,7 @@
             <!-- Fin header -->
 
             <div class="form-row">
-                <button class="w-100 btn btn-lg btn-info m-1 p-1" (click)="createList()">
+                <button class="w-100 btn btn-lg btn-info m-1 p-1" (click)="open(content)">
                     Create new list
                     <i class="fal fa-plus-circle"></i>
                 </button>
@@ -19,6 +19,38 @@
 
             <!-- Inicio Modal -->
 
+            <ng-template #content let-modal>
+
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Create New List</h4>
+                    <button type="button" class="close" aria-label="close" (click)="modal.dismiss('Cross Click')"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="name list">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="left-side">
+                        <button type="button" class="btn btn-info btn-link">
+                            ACEPTAR
+                        </button>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="right-side">
+                        <button type="button" class="btn btn-danger btn-link">
+                            CANCEL
+                        </button>
+                    </div>
+                </div>
+
+            </ng-template>
             
 
 
