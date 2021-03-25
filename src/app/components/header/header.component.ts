@@ -8,13 +8,21 @@ import { AuthService } from '../../auth/auth.service';
 
 export class HeaderComponent implements OnInit {
 
-  constructor(private authSvc: AuthService) { }
+  public user: any;
+
+  constructor(private authSvc: AuthService) {
+    this.authSvc.afAuth.authState.subscribe(user => {
+
+      if(user) this.user = user
+
+    })
+  }
 
   ngOnInit(): void {
   }
 
-  logOut(){
-    
+  logOut() {
+
     this.authSvc.logOut();
     console.log('out');
 
