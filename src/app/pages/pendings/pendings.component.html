@@ -23,7 +23,6 @@
 
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal-basic-title">Create New List</h4>
-                    <button type="button" class="close" aria-label="close" (click)="modal.dismiss('Cross Click')"></button>
                 </div>
 
                 <div class="modal-body">
@@ -36,15 +35,15 @@
 
                 <div class="modal-footer">
                     <div class="left-side">
-                        <button type="button" class="btn btn-info btn-link">
-                            ACEPTAR
+                        <button type="button" class="btn btn-info btn-link" (click)="createList()">
+                            Create
                         </button>
                     </div>
 
                     <div class="divider"></div>
 
                     <div class="right-side">
-                        <button type="button" class="btn btn-danger btn-link">
+                        <button type="button" class="btn btn-danger btn-link" (click)="modal.dismiss('Cross Click')">
                             CANCEL
                         </button>
                     </div>
