@@ -12,60 +12,24 @@
             <div class="form-row">
                 <table class="table">
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let list of lists; let i = index;">
                             <td class="text-left">
-                                <button class="btn btn-sm btn-primary">
+                                <button 
+                                data-id="{{ list.id }}"
+                                class="btn btn-sm btn-primary" 
+                                (click)="editList(list.id)">
                                     <i class="fal fa-pen"></i>
                                 </button>
 
-                                <button class="btn btn-sm btn-info">
+                                <button
+                                data-id="{{ list.id }}"
+                                class="btn btn-sm btn-info"
+                                (click)="deleteList(list.id, i)"
+                                >
                                     <i class="fal fa-trash"></i>
                                 </button>
                             </td>
-                            <td class="text-left">Name list</td>
-                            <td>Date</td>
-                            <td class="text-right">items</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left">
-                                <button class="btn btn-sm btn-primary">
-                                    <i class="fal fa-pen"></i>
-                                </button>
-
-                                <button class="btn btn-sm btn-info">
-                                    <i class="fal fa-trash"></i>
-                                </button>
-                            </td>
-                            <td class="text-left">Name list</td>
-                            <td>Date</td>
-                            <td class="text-right">items</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left">
-                                <button class="btn btn-sm btn-primary">
-                                    <i class="fal fa-pen"></i>
-                                </button>
-
-                                <button class="btn btn-sm btn-info">
-                                    <i class="fal fa-trash"></i>
-                                </button>
-                            </td>
-                            <td class="text-left">Name list</td>
-                            <td>Date</td>
-                            <td class="text-right">items</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left">
-                                <button class="btn btn-sm btn-primary">
-                                    <i class="fal fa-pen"></i>
-                                </button>
-
-                                <button class="btn btn-sm btn-info">
-                                    <i class="fal fa-trash"></i>
-                                </button>
-                            </td>
-                            <td class="text-left">Name list</td>
-                            <td>Date</td>
+                            <td class="text-left"><h6>{{ list.title }}</h6></td>
                             <td class="text-right">items</td>
                         </tr>
                         

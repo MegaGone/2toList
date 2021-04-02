@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { AngularFireAuth } from '@angular/fire/auth';
+import { ListModel } from 'src/app/models/list.model';
+import { DataService } from 'src/app/services/data.service';
 @Component({
   selector: 'app-pendings',
   templateUrl: './pendings.component.html'
@@ -8,10 +9,44 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 export class PendingsComponent implements OnInit {
 
-  public closeResult: string | any;
+  public uid: any;
+  public lists: ListModel[] = [];
 
-  constructor() { }
+  constructor(public dataSvc: DataService, private afAuth: AngularFireAuth) {
+
+    this.afAuth.authState.subscribe(user => {
+
+      if (user) {
+        this.uid = user.uid;
+
+        this.getLists(this.uid);
+      }
+
+    })
+
+  }
 
   ngOnInit(): void {
   }
+
+  getLists(id: string) {
+    this.dataSvc.getList(id).subscribe(res => {
+      this.lists = res;
+    })
+  }
+
+  editList(id: string | undefined){
+    console.log(id);
+  }
+
+  deleteList(id: any, i: number){
+    console.log(id);
+    console.log(i);
+    this.dataSvc.deleteList(id).subscribe(res => {
+      
+      this.lists.splice(i, 1);
+
+    })
+  }
+
 }

@@ -2,14 +2,15 @@ import { ItemModel } from './item.model';
 
 export class ListModel {
 
-    id!: number;
-    title!: string;
+    id?: string;
+    title: string;
     complete: boolean;
-    items: ItemModel[];
+    items: ItemModel[]
 
-    constructor(){
+    constructor(title: string){
+        this.title = title;
         this.complete = false;
-        this.items = []
+        this.items = [];
     }
 
 }
