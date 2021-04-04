@@ -1,3 +1,43 @@
-<button class="btn btn-sm btn-primary" (click)="editList(inputID)">
+<button class="btn btn-sm btn-primary" (click)="open(content, id);">
     <i class="fal fa-pen"></i>
 </button>
+
+<ng-template #content let-modal>
+
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Edit List</h4>
+    </div>
+
+
+    <div class="modal-body">
+        <form [formGroup]="editForm">
+            <div class="form-group">
+                <input 
+                type="text"
+                class="form-control text-center"
+                formControlName="title"
+                [ngClass]="{'is-invalid': titleInvalid}">
+                <small *ngIf="titleInvalid" class="text-danger">Must be at least 4 characters</small>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="modal-footer">
+        <div class="left-side">
+            <button type="button" class="btn btn-info btn-link" (click)="editList()">
+                Edit
+            </button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="right-side">
+            <button type="button" class="btn btn-danger btn-link"(click)="modal.dismiss('Cross Click')">
+                CANCEL
+            </button>
+        </div>
+    </div>
+
+</ng-template>

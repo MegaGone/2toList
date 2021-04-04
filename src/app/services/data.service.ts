@@ -32,7 +32,7 @@ export class DataService {
       )
   }
     
-  getList(id: string){
+  getLists(id: string){
     return this.http.get(`${this.url}/users/${id}.json`)
       .pipe(
         map(this.mapLists)
@@ -63,8 +63,8 @@ export class DataService {
     return this.http.delete(`${this.url}/users/${this.uid}/${id}.json`)
   }
 
-  editList(id: string){
-    
+  getList(id: string){
+    return this.http.get(`${this.url}/users/${this.uid}/${id}.json`)
   }
 
 }

@@ -23,7 +23,7 @@ export class ModalComponent implements OnInit {
     private router: Router
   ) {
     this.forma = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(4)], this.validationSvc.existTitle]
+      title: ['', [Validators.required, Validators.minLength(4)]]
     });
 
     this.loadListeners();
