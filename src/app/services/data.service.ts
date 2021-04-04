@@ -63,4 +63,8 @@ export class DataService {
     return this.http.delete(`${this.url}/users/${this.uid}/${id}.json`)
   }
 
+  editList(id: string){
+    
+  }
+
 }

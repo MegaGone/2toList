@@ -8,13 +8,15 @@ import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
 import { ModalComponent } from './modal/modal.component';
 import { ClearAllComponent } from './clear-all/clear-all.component';
+import { EditPopComponent } from './edit-pop/edit-pop.component';
 
 @NgModule({
   declarations: [
     MenuComponent,
     HeaderComponent,
     ModalComponent,
-    ClearAllComponent
+    ClearAllComponent,
+    EditPopComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { ClearAllComponent } from './clear-all/clear-all.component';
     MenuComponent,
     HeaderComponent,
     ModalComponent,
-    ClearAllComponent
+    ClearAllComponent,
+    EditPopComponent
   ]
 })
 export class ComponentsModule { }

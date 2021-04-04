@@ -9,23 +9,26 @@
             <app-modal></app-modal>
 
             <!-- Inicio data -->
-            <div class="form-row">
+            <div class="form-row" id="dataTable">
                 <table class="table">
                     <tbody>
                         <tr *ngFor="let list of lists; let i = index;">
                             <td class="text-left">
-                                <button 
+                                <app-edit-pop [inputID]=" list.id "></app-edit-pop>
+
+                                <!-- 
+                                    <button 
                                 data-id="{{ list.id }}"
                                 class="btn btn-sm btn-primary" 
                                 (click)="editList(list.id)">
                                     <i class="fal fa-pen"></i>
                                 </button>
+                                -->
 
                                 <button
                                 data-id="{{ list.id }}"
                                 class="btn btn-sm btn-info"
-                                (click)="deleteList(list.id, i)"
-                                >
+                                (click)="deleteList(list.id, i)">
                                     <i class="fal fa-trash"></i>
                                 </button>
                             </td>
