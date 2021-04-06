@@ -16,15 +16,15 @@
         <h4 class="modal-title" id="modal-basic-title">Create New List</h4>
     </div>
 
-    <div class="modal-body">
+    <div class="modal-body text-center">
         <form [formGroup]="forma">
             <div class="form-group">
                 <input type="text" 
-                class="form-control" 
+                class="form-control text-center" 
                 placeholder="Shopping List*" 
                 formControlName="title"
                 [ngClass]="{'is-invalid': titleInvalid}">
-                <small *ngIf="titleInvalid" class="text-danger">Must be at least 4 characters</small>
+                <small *ngIf="titleInvalid" class="text-danger">Must be at least 4 characters and a max of 12 characters</small>
             </div>
         </form>
     </div>

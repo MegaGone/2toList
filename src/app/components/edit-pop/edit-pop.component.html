@@ -10,7 +10,7 @@
     </div>
 
 
-    <div class="modal-body">
+    <div class="modal-body text-center">
         <form [formGroup]="editForm">
             <div class="form-group">
                 <input 
@@ -18,7 +18,7 @@
                 class="form-control text-center"
                 formControlName="title"
                 [ngClass]="{'is-invalid': titleInvalid}">
-                <small *ngIf="titleInvalid" class="text-danger">Must be at least 4 characters</small>
+                <small *ngIf="titleInvalid" class="text-danger">Must be at least 4 characters and a max of 12 characters</small>
             </div>
         </form>
     </div>
@@ -26,7 +26,7 @@
 
     <div class="modal-footer">
         <div class="left-side">
-            <button type="button" class="btn btn-info btn-link" (click)="editList()">
+            <button type="button" class="btn btn-info btn-link" (click)="editList(id)">
                 Edit
             </button>
         </div>

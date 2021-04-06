@@ -13,6 +13,8 @@ export class EditPopComponent implements OnInit {
   public closeResult: string = '';
   public editForm: FormGroup;
   public list: any;
+  public list4Update: any;
+  public prueba: any = new ListModel('');
 
   @Input() id: any = 'InputID'; // Estoy esperando recibir argumento
 
@@ -28,14 +30,14 @@ export class EditPopComponent implements OnInit {
   }
 
   open(content: any, id: string) {
-    this.modalSvc.open(content, { size: 'sm',  ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+    this.modalSvc.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Close with ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`
     })
 
     // Obtengo la lista
-    this.getList(id);
+    this.getTitle(id);
 
   }
 
@@ -43,7 +45,7 @@ export class EditPopComponent implements OnInit {
     return this.editForm.get('title')?.invalid && this.editForm.get('title')?.touched;
   }
 
-  editList() {
+  editList(id: string) {
 
     if (this.editForm.invalid) {
 
@@ -53,31 +55,34 @@ export class EditPopComponent implements OnInit {
 
     } else {
 
+      console.log({ id });
 
-      console.log('edited');
+      // Ya obtuve la lista 
+
+
+      // 1. Obtener la lista
+      // 2. Asignar a una variable 
+      // 3. Esa variable se la paso al metodo Update List
+      // 4. Muestro que se actualizo la lista
+
       this.modalSvc.dismissAll(ModalDismissReasons.BACKDROP_CLICK)
 
     }
   }
 
-  public getList = (id: string) => {
+  public getTitle = (id: string) => {
 
     this.dataSvc.getList(id).subscribe(res => {
 
       this.list = res;
-      
+
       const title = this.list.title;
-      console.log(title);
-      
 
       this.editForm = this.fb.group({
-        title: [title, [Validators.required, Validators.minLength(4)]]
+        title: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(12)]]
       })
 
     })
-
-
-
   }
 
 

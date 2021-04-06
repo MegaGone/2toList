@@ -30,8 +30,9 @@ export class PendingsComponent implements OnInit {
   }
 
   getLists(id: string) {
-    this.dataSvc.getLists(id).subscribe(res => {
-      this.lists = res;
+    this.dataSvc.getLists(id).subscribe(lists => {
+      this.lists = lists;
+      // console.log({lists});
     })
   }
 
