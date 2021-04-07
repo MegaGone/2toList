@@ -32,19 +32,19 @@ export class PendingsComponent implements OnInit {
   getLists(id: string) {
     this.dataSvc.getLists(id).subscribe(lists => {
       this.lists = lists;
-      // console.log({lists});
+      console.log(lists);
     })
   }
 
-  editList(id: string | undefined){
+  editList(id: string | undefined) {
     console.log(id);
   }
 
-  deleteList(id: any, i: number){
+  deleteList(id: any, i: number) {
     console.log(id);
     console.log(i);
     this.dataSvc.deleteList(id).subscribe(res => {
-      
+
       this.lists.splice(i, 1);
 
     })

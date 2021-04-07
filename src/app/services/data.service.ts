@@ -39,6 +39,17 @@ export class DataService {
       )
   }
 
+  updateList(list: ListModel){
+
+
+    const listTemp: any = {
+      ...list
+    };
+
+    delete listTemp.id;
+
+    return this.http.put(`${this.url}/users/${this.uid}/${list.id}.json`, listTemp)
+  }
 
   private mapLists(listsObj: any){
 

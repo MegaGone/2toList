@@ -3,7 +3,7 @@
         <div class="col-12 col-sm-7 col-md-6 col-lg-4 text-center">
 
             <!-- Header -->
-            <app-header></app-header>  
+            <app-header></app-header>
 
             <!-- Modal -->
             <app-modal></app-modal>
@@ -16,17 +16,19 @@
                             <td class="text-left">
                                 <app-edit-pop [id]=" list.id "></app-edit-pop>
 
-                                <button
-                                data-id="{{ list.id }}"
-                                class="btn btn-sm btn-info"
-                                (click)="deleteList(list.id, i)">
+                                <button data-id="{{ list.id }}" class="btn btn-sm btn-info"
+                                    (click)="deleteList(list.id, i)">
                                     <i class="fal fa-trash"></i>
                                 </button>
                             </td>
-                            <td class="text-left"><h6>{{ list.title }}</h6></td>
+                            <td class="text-left">
+                                <a [routerLink]="[ '/list', list.id ]" class="text-dark">
+                                    <h6>{{list.title}}</h6>
+                                </a>
+                            </td>
                             <td class="text-right">items</td>
                         </tr>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -38,7 +40,9 @@
 
             <app-menu></app-menu>
 
-            <!-- Fin Menu component -->
+            <!-- Fin Menu component 
+            
+            [routerLink]="['/edit', list.id]"-->
         </div>
     </div>
 </div>

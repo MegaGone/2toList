@@ -6,11 +6,11 @@
             <div class="form-row p-2 bg-primary rounded">
 
                 <div class="col-1 col-sm-1 col-md-1 col-lg-1 text-center my-auto">
-                    <i class="fas fa-angle-double-left text-white" (click)="backToPendings()"></i> 
+                    <i class="fas fa-angle-double-left text-white" [routerLink]="['/pendings']"></i> 
                 </div>
 
                 <div class="col-7 col-sm-7 col-md-7 col-lg-7 text-left mt-3 my-auto">
-                    <h4 class="my-auto text-white">List name</h4>
+                    <h4 class="my-auto text-white">{{ list.title }}</h4>
                 </div>
 
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 text-right mt-3 my-auto">
@@ -19,7 +19,7 @@
 
             </div>
 
-            <div class="form-row">
+            <div class="form-row border border-dark"  id="dataTable">
                 <table class="table">
                     <tbody>
                         <tr>

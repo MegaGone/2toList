@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsModule } from '../components/components.module';
+import { RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { FinishedComponent } from './finished/finished.component';
 import { PendingsComponent } from './pendings/pendings.component';
 import { ListComponent } from './list/list.component';
+
 
 
 
@@ -18,7 +20,8 @@ import { ListComponent } from './list/list.component';
   ],
   imports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    RouterModule
   ],
   exports: [
     LoginComponent, 

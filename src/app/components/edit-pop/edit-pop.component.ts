@@ -13,7 +13,6 @@ export class EditPopComponent implements OnInit {
   public closeResult: string = '';
   public editForm: FormGroup;
   public list: any;
-  public list4Update: any;
   public prueba: any = new ListModel('');
 
   @Input() id: any = 'InputID'; // Estoy esperando recibir argumento
@@ -55,7 +54,21 @@ export class EditPopComponent implements OnInit {
 
     } else {
 
-      console.log({ id });
+      this.dataSvc.getList(id).subscribe(res => {
+
+        // Asignar el ID
+        this.prueba = res;
+        this.prueba.id = id;
+        // console.log(this.prueba);
+        
+
+        // Actualizar
+        this.dataSvc.updateList(this.prueba).subscribe(res => {
+          console.log(res);
+          
+        })
+
+      })
 
       // Ya obtuve la lista 
 
@@ -75,11 +88,11 @@ export class EditPopComponent implements OnInit {
     this.dataSvc.getList(id).subscribe(res => {
 
       this.list = res;
-
-      const title = this.list.title;
+      
+      let title = this.list.title;
 
       this.editForm = this.fb.group({
-        title: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(12)]]
+        title: [title, [Validators.required, Validators.minLength(4), Validators.maxLength(12)]]
       })
 
     })
